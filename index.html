@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17283a">
+  <meta name="description" content="Resumen de aportes, gastos y saldo de la reunión de la Promoción 97 del Colegio Nacional San José.">
+  <title>Aportes para la reunión · Promoción 97</title>
+  <style>
+    :root { color-scheme: light; --ink:#17283a; --muted:#637486; --line:#dce5e9; --paper:#f4f7f7; --white:#fff; --wine:#782f45; --wine-soft:#f7ecf0; --gold:#e9b85e; --teal:#0c786f; --teal-soft:#e6f4f0; --blue:#3b79a5; --shadow:0 12px 35px rgba(24,42,59,.07); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; }
+    button,input { font:inherit; }
+    button { cursor:pointer; }
+    a { color:inherit; }
+    .shell { max-width:1240px; margin:auto; padding:0 26px; }
+    .hero { background:radial-gradient(circle at 85% 0%,#375269 0,transparent 43%),linear-gradient(135deg,#142639,#243c50); color:#fff; overflow:hidden; position:relative; }
+    .hero::after { content:"97"; position:absolute; right:3%; bottom:-127px; font-weight:900; font-size:390px; line-height:1; letter-spacing:-.12em; color:rgba(255,255,255,.035); pointer-events:none; }
+    .hero .shell { position:relative; z-index:1; padding-top:29px; padding-bottom:64px; }
+    .topline { display:flex; align-items:center; justify-content:space-between; gap:24px; border-bottom:1px solid rgba(255,255,255,.18); padding-bottom:22px; }
+    .brand { display:flex; align-items:center; gap:13px; min-width:0; }
+    .brand-mark { width:42px; height:42px; display:grid; place-items:center; border:1px solid rgba(233,184,94,.7); border-radius:12px; color:var(--gold); font-size:17px; font-weight:800; letter-spacing:-.04em; flex:none; }
+    .brand strong { display:block; font-size:14px; letter-spacing:.055em; text-transform:uppercase; }
+    .brand small { display:block; color:#b9c8d2; font-size:12px; }
+    .top-actions { display:flex; gap:9px; flex-wrap:wrap; }
+    .top-actions button { border:1px solid rgba(255,255,255,.24); color:#fff; background:rgba(255,255,255,.07); border-radius:10px; padding:9px 14px; font-size:13px; }
+    .top-actions button:hover,.top-actions button:focus-visible { background:rgba(255,255,255,.17); }
+    .eyebrow { text-transform:uppercase; letter-spacing:.16em; color:var(--gold); font-size:12px; font-weight:800; margin:43px 0 12px; }
+    h1 { font-size:clamp(34px,5vw,58px); line-height:1.08; margin:0; letter-spacing:-.045em; max-width:850px; }
+    .hero-copy { color:#c7d3da; max-width:780px; margin:17px 0 0; font-size:16px; }
+    .hero-copy span { color:#e7bf73; }
+    main { margin-top:-30px; position:relative; z-index:2; padding-bottom:55px; }
+    .metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+    .card { background:var(--white); border:1px solid #e7edef; border-radius:17px; box-shadow:var(--shadow); }
+    .metric { padding:21px 22px; min-height:144px; border-top:3px solid transparent; }
+    .metric.income { border-top-color:var(--blue); }.metric.voluntary { border-top-color:var(--gold); }.metric.expense { border-top-color:var(--wine); }.metric.balance { border-top-color:var(--teal); background:#f4fbf8; }
+    .metric-label { text-transform:uppercase; letter-spacing:.09em; color:var(--muted); font-size:11px; font-weight:800; }
+    .metric-value { font-size:clamp(26px,3vw,34px); font-weight:800; line-height:1.1; margin:17px 0 7px; letter-spacing:-.04em; font-variant-numeric:tabular-nums; }
+    .metric.balance .metric-value { color:var(--teal); }
+    .metric-note { color:var(--muted); font-size:12px; }
+    .section { margin-top:24px; }
+    .section-heading { display:flex; justify-content:space-between; align-items:end; gap:15px; margin:0 0 13px; }
+    .section-heading h2 { font-size:23px; margin:0; line-height:1.2; letter-spacing:-.025em; }
+    .section-heading p { color:var(--muted); margin:3px 0 0; font-size:13px; }
+    .section-label { color:var(--wine); text-transform:uppercase; font-size:11px; font-weight:800; letter-spacing:.11em; }
+    .overview { display:grid; grid-template-columns:1.15fr .85fr; gap:16px; }
+    .panel { padding:24px; }
+    .panel h3 { margin:0; font-size:17px; letter-spacing:-.02em; }
+    .panel .hint { color:var(--muted); font-size:13px; margin:3px 0 0; }
+    .monthly-chart { display:flex; align-items:flex-end; gap:19px; height:210px; margin-top:29px; padding:0 12px 0; border-bottom:1px solid var(--line); background:repeating-linear-gradient(to top,transparent 0,transparent 51px,#edf2f4 52px,#edf2f4 53px); }
+    .bar-group { flex:1; display:flex; align-items:flex-end; justify-content:center; height:100%; position:relative; }
+    .bar { height:78%; width:min(80px,66%); border-radius:9px 9px 0 0; background:linear-gradient(#5a98bd,#367aa6); position:relative; transition:transform .2s; }
+    .bar:hover { transform:scaleX(1.06); }
+    .bar::before { content:"S/ 700"; position:absolute; white-space:nowrap; bottom:calc(100% + 9px); left:50%; transform:translateX(-50%); color:var(--ink); font-weight:800; font-size:13px; }
+    .axis { display:flex; gap:19px; padding:11px 12px 0; text-align:center; color:var(--muted); font-size:13px; font-weight:700; }
+    .axis span { flex:1; }
+    .mini-caption { display:flex; flex-wrap:wrap; justify-content:space-between; gap:9px; margin-top:20px; padding-top:14px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
+    .mini-caption strong { color:var(--ink); }
+    .expense-figure { display:flex; align-items:center; gap:22px; margin-top:24px; }
+    .donut { width:168px; height:168px; flex:none; position:relative; display:grid; place-items:center; }
+    .donut svg { width:100%; height:100%; transform:rotate(-90deg); }
+    .donut-center { position:absolute; text-align:center; line-height:1.25; }
+    .donut-center strong { display:block; font-size:23px; letter-spacing:-.04em; }
+    .donut-center small { color:var(--muted); font-size:11px; font-weight:700; text-transform:uppercase; }
+    .legend { flex:1; min-width:0; }
+    .legend-item { display:grid; grid-template-columns:10px 1fr auto; align-items:center; gap:9px; padding:11px 0; border-bottom:1px solid var(--line); font-size:13px; }
+    .legend-item:last-child { border:0; }.legend-item b { font-variant-numeric:tabular-nums; }
+    .dot { width:10px; height:10px; border-radius:50%; background:var(--wine); }.dot.gold { background:var(--gold); }
+    .split { display:grid; grid-template-columns:1.4fr .6fr; gap:16px; }
+    .toolbar { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:17px; flex-wrap:wrap; }
+    .search { padding:10px 13px; width:min(100%,310px); border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--ink); outline-color:var(--blue); }
+    .count { color:var(--muted); font-size:13px; }
+    .table-wrap { overflow:auto; }
+    table { width:100%; border-collapse:collapse; min-width:540px; font-variant-numeric:tabular-nums; }
+    th { background:#f3f6f7; color:#586979; font-size:11px; text-transform:uppercase; letter-spacing:.07em; font-weight:800; text-align:right; padding:11px 12px; white-space:nowrap; }
+    td { padding:11px 12px; border-bottom:1px solid #ebeff1; text-align:right; white-space:nowrap; }
+    tbody tr:hover { background:#f8fbfc; }
+    th:first-child,td:first-child { text-align:left; width:39px; color:var(--muted); }
+    th:nth-child(2),td:nth-child(2) { text-align:left; }
+    td:last-child,tfoot td:last-child { font-weight:800; }
+    tfoot td { background:#eaf1f4; font-weight:800; border:0; }
+    .entries { display:grid; gap:11px; margin-top:19px; }
+    .entry { padding:15px; border:1px solid var(--line); border-radius:12px; background:#fcfdfd; }
+    .entry-top { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .entry strong { font-size:14px; }.entry .amount { font-weight:800; white-space:nowrap; font-variant-numeric:tabular-nums; }
+    .entry small { display:block; color:var(--muted); margin-top:5px; line-height:1.45; }
+    .badge { display:inline-flex; border-radius:20px; padding:3px 9px; font-size:10px; letter-spacing:.05em; font-weight:800; text-transform:uppercase; background:var(--wine-soft); color:var(--wine); }
+    .badge.gold { background:#fff5df; color:#8a6118; }
+    .badge.green { background:var(--teal-soft); color:var(--teal); }
+    .summary-line { display:flex; justify-content:space-between; padding:14px 1px 0; margin-top:2px; border-top:1px solid var(--line); font-size:13px; font-weight:800; }
+    .summary-line span:last-child { font-variant-numeric:tabular-nums; }
+    .accounting { margin-top:15px; padding:16px 18px; border-radius:12px; background:#e8f4f0; color:#1b5d57; }
+    .accounting strong { font-size:13px; }.accounting p { margin:5px 0 0; font-size:13px; }
+    footer { color:var(--muted); font-size:12px; border-top:1px solid var(--line); padding:21px 0 31px; }
+    .footer-inner { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    :focus-visible { outline:3px solid #e9b85e; outline-offset:3px; }
+    @media(max-width:950px) { .metrics { grid-template-columns:repeat(2,1fr); }.overview,.split { grid-template-columns:1fr; } }
+    @media(max-width:590px) { .shell { padding-left:16px; padding-right:16px; }.hero .shell { padding-bottom:53px; }.topline { align-items:flex-start; flex-direction:column; }.top-actions { width:100%; }.hero-copy { font-size:14px; }.metrics { gap:10px; }.metric { padding:17px 14px; min-height:132px; }.metric-value { font-size:25px; }.metric-note { font-size:11px; }.panel { padding:18px; }.expense-figure { flex-direction:column; align-items:stretch; }.donut { margin:auto; }.section-heading h2 { font-size:21px; } }
+    @media print { @page { size:A4; margin:12mm; } body { background:white; color:#17283a; font-size:10px; } .shell { max-width:none; padding:0; } .hero { color:#17283a; background:white; border-bottom:2px solid #782f45; }.hero::after,.top-actions,.search { display:none!important; }.hero .shell { padding:0 0 12px; }.topline { border:0; padding:0; }.brand small,.hero-copy { color:#526272; }.brand-mark,.eyebrow { color:#782f45; border-color:#782f45; }.eyebrow { margin:12px 0 4px; }.hero h1 { font-size:24px; }.hero-copy { margin:5px 0 0; font-size:10px; } main { margin:9px 0 0; padding:0; } .metrics { gap:6px; }.metric { min-height:76px; padding:8px; }.metric-value { font-size:19px; margin:6px 0 1px; }.metric-label,.metric-note { font-size:8px; }.section { margin-top:10px; }.section-heading { margin-bottom:6px; }.section-heading h2 { font-size:16px; }.section-heading p,.section-label { font-size:9px; }.panel { padding:10px; }.panel h3 { font-size:12px; }.panel .hint { font-size:9px; }.monthly-chart { height:105px; margin-top:18px; }.bar::before { font-size:9px; }.axis,.mini-caption,.legend-item { font-size:9px; }.donut { width:105px; height:105px; }.donut-center strong { font-size:15px; }.donut-center small { font-size:7px; }.expense-figure { margin-top:10px; }.entries { gap:4px; margin-top:7px; }.entry { padding:7px; }.entry strong,.entry .amount,.entry small,.summary-line,.accounting p { font-size:9px; }.entry small { margin-top:1px; }.badge { font-size:7px; }.split { grid-template-columns:1.45fr .55fr; gap:8px; } table { min-width:0; } th,td { padding:3px 5px; font-size:8px; }.toolbar { margin-bottom:5px; }.accounting { padding:7px; margin-top:5px; } footer { padding:9px 0; font-size:8px; } .card { box-shadow:none; border:1px solid #dce5e9; } .section,.card,.entry { break-inside:avoid; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="shell">
+      <div class="topline">
+        <div class="brand"><div class="brand-mark" aria-hidden="true">97</div><div><strong>Promoción 1997 · Colegio Nacional “San José”</strong><small>San José, cuna de héroes · Raúl Gustavo Jiménez Chávez</small></div></div>
+        <div class="top-actions"><button type="button" id="downloadCsv">↓ Descargar CSV</button><button type="button" onclick="window.print()">⎙ Imprimir / PDF</button></div>
+      </div>
+      <p class="eyebrow">Reporte de aportes · Reunión Promo 97</p>
+      <h1>Un registro claro de lo que aportamos juntos.</h1>
+      <p class="hero-copy">Aportes de <span>julio, agosto y septiembre</span>, contribuciones voluntarias, adelantos y saldo disponible.</p>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="metrics" aria-label="Resumen financiero">
+      <div class="card metric income"><div class="metric-label">Aportes de participantes</div><div class="metric-value">S/ 2,100.00</div><div class="metric-note">14 participantes · 3 meses</div></div>
+      <div class="card metric voluntary"><div class="metric-label">Aportes voluntarios</div><div class="metric-value">S/ 100.00</div><div class="metric-note">2 contribuciones adicionales</div></div>
+      <div class="card metric expense"><div class="metric-label">Adelantos entregados</div><div class="metric-value">S/ 850.00</div><div class="metric-note">Local y comida</div></div>
+      <div class="card metric balance"><div class="metric-label">Saldo en caja</div><div class="metric-value">S/ 1,350.00</div><div class="metric-note">Ingresos S/ 2,200 − egresos S/ 850</div></div>
+    </section>
+
+    <section class="section" aria-labelledby="charts-title">
+      <div class="section-heading"><div><div class="section-label">Panorama general</div><h2 id="charts-title">Ingresos y destino de los adelantos</h2></div></div>
+      <div class="overview">
+        <div class="card panel"><h3>Aportes por mes</h3><p class="hint">Los 14 participantes registran S/ 50 cada mes.</p><div class="monthly-chart" role="img" aria-label="Julio S/ 700, agosto S/ 700, septiembre S/ 700"><div class="bar-group"><div class="bar"></div></div><div class="bar-group"><div class="bar"></div></div><div class="bar-group"><div class="bar"></div></div></div><div class="axis"><span>Julio</span><span>Agosto</span><span>Septiembre</span></div><div class="mini-caption"><span>Total de aportes mensuales: <strong>S/ 2,100.00</strong></span><span>Participación: <strong>14 de 14</strong></span></div></div>
+        <div class="card panel"><h3>Distribución de egresos</h3><p class="hint">Dos adelantos registrados, ambos mediante Yape.</p><div class="expense-figure"><div class="donut" role="img" aria-label="Comida S/ 500, 58.8%; local S/ 350, 41.2%"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="46" fill="none" stroke="#edf1f2" stroke-width="15"/><circle cx="60" cy="60" r="46" fill="none" stroke="#782f45" stroke-width="15" stroke-dasharray="170.01 289.03"/><circle cx="60" cy="60" r="46" fill="none" stroke="#e9b85e" stroke-width="15" stroke-dasharray="119.02 289.03" stroke-dashoffset="-170.01"/></svg><div class="donut-center"><strong>S/ 850</strong><small>egresos</small></div></div><div class="legend"><div class="legend-item"><span class="dot"></span><span>Comida · 58.8%</span><b>S/ 500</b></div><div class="legend-item"><span class="dot gold"></span><span>Local · 41.2%</span><b>S/ 350</b></div></div></div><div class="mini-caption"><span>El saldo representa <strong>61.4%</strong> del total recibido.</span></div></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="detail-title">
+      <div class="section-heading"><div><div class="section-label">Detalle del registro</div><h2 id="detail-title">Aportes y movimientos</h2><p>Importes expresados en soles (S/).</p></div></div>
+      <div class="split">
+        <div class="card panel"><div class="toolbar"><div><h3>Participantes</h3><p class="hint">S/ 150 por persona durante los tres meses.</p></div><input class="search" id="participantSearch" type="search" placeholder="Buscar participante…" aria-label="Buscar participante"></div><div class="table-wrap"><table><thead><tr><th scope="col">N.º</th><th scope="col">Participante</th><th scope="col">Julio</th><th scope="col">Agosto</th><th scope="col">Septiembre</th><th scope="col">Total</th></tr></thead><tbody id="participantRows"></tbody><tfoot><tr><td colspan="2">TOTAL</td><td>S/ 700</td><td>S/ 700</td><td>S/ 700</td><td>S/ 2,100</td></tr></tfoot></table></div><p class="count" id="resultCount" aria-live="polite"></p></div>
+        <div class="card panel"><h3>Movimientos adicionales</h3><p class="hint">Aportes voluntarios y adelantos.</p><div class="entries"><div class="entry"><div class="entry-top"><strong>José Tapia</strong><span class="amount">+ S/ 50.00</span></div><small><span class="badge green">Voluntario</span> Aporte adicional; sin fecha indicada en la hoja.</small></div><div class="entry"><div class="entry-top"><strong>Henry Rojas</strong><span class="amount">+ S/ 50.00</span></div><small><span class="badge green">Voluntario</span> Aporte adicional; sin fecha indicada en la hoja.</small></div><div class="entry"><div class="entry-top"><strong>Adelanto para local</strong><span class="amount">− S/ 350.00</span></div><small><span class="badge gold">15 ago 2026</span> Entregado a Pedro Lluncor mediante Yape.</small></div><div class="entry"><div class="entry-top"><strong>Adelanto para comida</strong><span class="amount">− S/ 500.00</span></div><small><span class="badge">24 sep 2026</span> Entregado a la Sra. Marieta Mar mediante Yape.</small></div></div><div class="summary-line"><span>Ingresos totales</span><span>S/ 2,200.00</span></div><div class="summary-line"><span>Egresos totales</span><span>S/ 850.00</span></div><div class="accounting"><strong>Saldo disponible · S/ 1,350.00</strong><p>S/ 2,100 de participantes + S/ 100 voluntarios − S/ 850 en adelantos.</p></div></div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="shell footer-inner"><span>Promoción 1997 · Colegio Nacional “San José”</span><span>Datos transcritos de la imagen del registro compartido.</span></div></footer>
+  <script>
+    const participants = [
+      'IVAN GUEVARA','LUIS RENTERIA','FRANCIS GONZALES','ALAN VASQUEZ E.','CARLOS PEREZ','JUAN C. LOBATO','JORGE CRUZ','JUAN CARBONEL','MARIO CUBAS','MIGUEL PISCOYA','ORLANDO LARA','PEDRO LLUNCOR','MARCO HUALLULLO','PEDRO RUIZ SIME'
+    ];
+    const tbody = document.getElementById('participantRows');
+    const search = document.getElementById('participantSearch');
+    const count = document.getElementById('resultCount');
+    function normalize(value) { return value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(); }
+    function render() {
+      const query = normalize(search.value.trim());
+      const filtered = participants.map((name,index)=>({name,index})).filter(item=>normalize(item.name).includes(query));
+      tbody.replaceChildren(...filtered.map(({name,index})=>{
+        const row=document.createElement('tr');
+        [index+1,name,'S/ 50','S/ 50','S/ 50','S/ 150'].forEach(value=>{ const cell=document.createElement('td'); cell.textContent=value; row.appendChild(cell); });
+        return row;
+      }));
+      count.textContent=`Mostrando ${filtered.length} de ${participants.length} participantes`;
+    }
+    search.addEventListener('input',render); render();
+    document.getElementById('downloadCsv').addEventListener('click',()=>{
+      const rows=[['N.º','Participante','Julio (S/)','Agosto (S/)','Septiembre (S/)','Total (S/)'],...participants.map((name,index)=>[index+1,name,50,50,50,150]),['','TOTAL',700,700,700,2100],[],['Tipo','Detalle','Fecha','Monto (S/)'],['Aporte voluntario','José Tapia','',50],['Aporte voluntario','Henry Rojas','',50],['Egreso','Local - entregado a Pedro Lluncor por Yape','15/08/2026',-350],['Egreso','Comida - entregado a Sra. Marieta Mar por Yape','24/09/2026',-500],[],['Ingresos totales','','',2200],['Egresos totales','','',850],['Saldo en caja','','',1350]];
+      const csv='\ufeff'+rows.map(row=>row.map(value=>'"'+String(value).replaceAll('"','""')+'"').join(',')).join('\r\n');
+      const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})); const a=document.createElement('a'); a.href=url; a.download='aportes-promocion-97.csv'; a.click(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+    });
+  </script>
+</body>
+</html>
